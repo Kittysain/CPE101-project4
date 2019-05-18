@@ -4,3 +4,5 @@
 # Instructor: S. Einakian
 # Section: CPE101_01
 ####################################################
+
+def validate_rows(grid):
