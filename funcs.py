@@ -5,7 +5,19 @@
 # Section: CPE101_01
 ####################################################
 
+#this function checks if any of the rows has repeated values and returns false if there is, otherwise, it returns true
+#list ---> boolean
 def validate_rows(grid):
+  list = []
+    for col in range(5, 30, 5):
+        list.append(grid[(col - 5):col])
+    for rows in list:
+        newList = []
+        for num in rows:
+            if num in newList and num != 0:
+                return False
+            newList.append(num)
+    return True
 
   
 # This transpose function change the original rows to columns, and columns to rows. 
