@@ -35,3 +35,15 @@ def validate_cages(grid, cages):
         return True
     else:
         return False
+      
+# This function validate_cols checks if the columns of the grid has repeating values, returns false when there is repeating value, and returns true when there is not.
+# list -> boolean
+def validate_cols(grid):
+    new_grid = transpose(grid)
+    return validate_rows(new_grid)
+
+# This function validate_all checks the cols, rows for repeating value, and the sum of the grid. Returns true when all three condition are validate.
+# list,list ->boolean
+def validate_all(grid,cages):
+    res = validate_cages(grid,cages) == validate_cols(grid) == validate_rows(grid) == True
+    return res
