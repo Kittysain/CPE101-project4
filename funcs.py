@@ -6,3 +6,32 @@
 ####################################################
 
 def validate_rows(grid):
+
+  
+# This transpose function change the original rows to columns, and columns to rows. 
+# list -> list
+def transpose(grid):
+    new_list= [0 for x in range(25)]
+    for index in range (len(grid)):
+        row =  index // 5
+        col = index % 5
+        new_index = col * 5 + row
+        new_list[new_index]= grid[index]
+    return new_list
+
+# This validate_cages function checks if the sum of the cage is equal to the required sum to the cage. Returns wheh they are equal.
+# list, list -> boolean
+def validate_cages(grid, cages):
+    sum_list = []
+    validate_list = [item[0] for item in cages]
+    for item in cages:
+        new_list = item[1:]
+        sum = 0
+        for index in new_list:
+            sum += grid[index]
+        sum_list.append(sum)
+
+    if sum_list == validate_list:
+        return True
+    else:
+        return False
