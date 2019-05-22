@@ -14,7 +14,7 @@ def validate_rows(grid):
     for rows in list:
         newList = []
         for num in rows:
-            if num in newList:
+            if num in newList and num != 0:
                 return False
             newList.append(num)
     return True
