@@ -35,19 +35,19 @@ def transpose(grid):
 # This validate_cages function checks if the sum of the cage is equal to the required sum to the cage. Returns wheh they are equal.
 # list, list -> boolean
 def validate_cages(grid, cages):
-    sum_list = []
-    validate_list = [item[0] for item in cages]
-
     for item in cages:
-        new_list = item[1:]
+        list = []
+        requiredsum = item[0]
+        indexes = item[1:]
+        for index in indexes:
+            num = grid[int(index)]
+            list.append(int(num))
         sum = 0
-        for index in new_list:
-            sum += grid[int(index)]
-        sum_list.append(sum)
-
-    for i in range (len(validate_list)):
-        bool1 = int(sum_list[i]) <= int(validate_list[i])
-        if bool1 == False:
+        for value in list:
+            sum += value
+        if 0 in list and sum < int(requiredsum) or 0 not in list and sum == int(requiredsum):
+            continue
+        elif 0 in list and sum >= int(requiredsum) or 0 not in list and sum != int(requiredsum):
             return False
     return True
 
