@@ -6,34 +6,33 @@
 from funcs import *
 
 def main():
-    numcages = int(input())
+    num_cages = int(input())
     cage = []
-    for num in range(numcages):
-        cagevalue = input()
-        listcage = cagevalue.split()
-        cage.append(listcage)
-    grid = 25 * [0]
-    cell = 0
-    while cell < 25:
-        grid[cell] += 1
-        if validate_all(grid, cage) == True:
-            cell += 1
-        elif grid[cell] > 5:
-            grid[cell] = 0
-            cell -= 1
+    for num in range(num_cages):
+        cage_value = input()
+        list_cage = cage_value.split()
+        cage.append(list_cage)
 
-    newgrid = ""
+    grid = 25 * [0]
+    index = 0
+    while index < 25:
+        grid[index] += 1
+        if validate_all(grid, cage) == True:
+            index += 1
+        elif grid[index] > 5:
+            grid[index] = 0
+            index -= 1
+
+
+    new_grid = ""
     for rows in range(5):
         for col in range(5):
             index = (rows * 5) + col
             numbers = grid[index]
-            newgrid += " ".join(str(numbers))
-        newgrid += "\n"
+            new_grid += "".join(str(numbers)+' ')
+        new_grid += "\n"
 
-    print(newgrid)
-
-
-
+    print(new_grid)
 
 if __name__ == '__main__':
     main()

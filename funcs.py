@@ -1,9 +1,4 @@
-# Project 4
-#
-# Name: Kitty Zhuang and Josh Zhang
-# Instructor: S. Einakian
-# Section: CPE101_01
-####################################################
+
 
 # this function checks if any of the rows has repeated values and returns false if there is, otherwise, it returns true
 # list ---> boolean
@@ -35,20 +30,23 @@ def transpose(grid):
 # This validate_cages function checks if the sum of the cage is equal to the required sum to the cage. Returns wheh they are equal.
 # list, list -> boolean
 def validate_cages(grid, cages):
+
     for item in cages:
-        list = []
-        requiredsum = item[0]
-        indexes = item[1:]
-        for index in indexes:
+        cage_list = []
+        required_sum = item[0]
+        index_list = item[1:]
+
+        for index in index_list:
             num = grid[int(index)]
-            list.append(int(num))
+            cage_list.append(int(num))
+
         sum = 0
-        for value in list:
+        for value in cage_list:
             sum += value
-        if 0 in list and sum < int(requiredsum) or 0 not in list and sum == int(requiredsum):
-            continue
-        elif 0 in list and sum >= int(requiredsum) or 0 not in list and sum != int(requiredsum):
+
+        if 0 in cage_list and sum >= int(required_sum) or 0 not in cage_list and sum != int(required_sum):
             return False
+
     return True
 
 
